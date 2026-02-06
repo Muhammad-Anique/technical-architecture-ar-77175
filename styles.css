@@ -1,0 +1,451 @@
+/* Arena Salon - Technical Architecture Styling */
+
+:root {
+    /* Color Palette - Luxury Gold & Obsidian */
+    --primary-copper: #c5a059;
+    --primary-hover: #b38f4d;
+    --bg-dark: #121212;
+    --bg-light: #fdfdfd;
+    --text-main: #2d2d2d;
+    --text-muted: #666666;
+    --white: #ffffff;
+    --gold-gradient: linear-gradient(135deg, #c5a059 0%, #ecd699 100%);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Raleway', sans-serif;
+    
+    /* Spacing & Utilities */
+    --section-padding: 100px 5%;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --container-max: 1200px;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    transition: var(--transition);
+    padding: 20px 0;
+}
+
+header.scrolled {
+    background: rgba(18, 18, 18, 0.95);
+    padding: 12px 0;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+.logo span {
+    color: var(--primary-copper);
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-copper);
+}
+
+.nav-btn {
+    padding: 10px 25px;
+    border: 1px solid var(--primary-copper);
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.nav-btn:hover {
+    background: var(--primary-copper);
+    color: var(--bg-dark);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: var(--white);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.subtitle {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: var(--primary-copper);
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.primary-btn {
+    background: var(--primary-copper);
+    color: var(--white);
+    padding: 15px 40px;
+    font-weight: 600;
+}
+
+.secondary-btn {
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 15px 40px;
+}
+
+.primary-btn:hover { background: var(--primary-hover); transform: translateY(-3px); }
+.secondary-btn:hover { background: var(--white); color: var(--bg-dark); transform: translateY(-3px); }
+
+/* About Section */
+.about {
+    padding: var(--section-padding);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    border-radius: 4px;
+    box-shadow: 20px 20px 0px var(--primary-copper);
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.highlights {
+    margin-top: 30px;
+}
+
+.highlights li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.highlights li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    color: var(--primary-copper);
+}
+
+/* Services Section */
+.services {
+    padding: var(--section-padding);
+    background-color: #f9f9f9;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-copper);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-name {
+    font-weight: 400;
+}
+
+.item-price {
+    font-family: var(--font-heading);
+    color: var(--primary-copper);
+    font-weight: 600;
+}
+
+/* Stylist Gallery */
+.stylists {
+    padding: var(--section-padding);
+}
+
+.stylist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.stylist-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.stylist-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.stylist-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: var(--white);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.stylist-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.stylist-card:hover .stylist-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 80px 5%;
+    background: var(--bg-dark);
+    color: var(--white);
+    text-align: center;
+}
+
+.testimonial-item p {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.testimonial-item cite {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: var(--primary-copper);
+}
+
+/* Contact Section */
+.contact {
+    padding: var(--section-padding);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+.detail-group {
+    margin-bottom: 30px;
+}
+
+.detail-group h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    color: var(--primary-copper);
+    margin-bottom: 10px;
+}
+
+.map-container {
+    height: 100%;
+    min-height: 400px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 5%;
+    background: #000;
+    color: #888;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+    font-size: 0.8rem;
+}
+
+.social-links a {
+    margin-left: 20px;
+}
+
+.social-links a:hover {
+    color: var(--white);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none; /* In a real project, JS would handle the toggle */
+    }
+    
+    .about-image img {
+        box-shadow: 10px 10px 0px var(--primary-copper);
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
